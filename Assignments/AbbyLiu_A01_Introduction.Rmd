@@ -39,22 +39,22 @@ Enter answers to the questions just below the >Answer: prompt.
 
 1. What are your previous experiences with data analytics, R, and Git? Include both formal and informal training.
 
-> Answer: 
+> Answer: took ENVIRON 710 and had experience with R; but not very familiar with Git
 
 2. Are there any components of the course about which you feel confident?
 
-> Answer: 
+> Answer: GLMs and data visualization
 
 3. Are there any components of the course about which you feel apprehensive?
 
-> Answer: 
+> Answer: time series maybe
 
 
 ## 3) GitHub
 
 Provide a link below to your forked course repository in GitHub. Make sure you have pulled all recent changes from the course repository and that you have updated your course README file, committed those changes, and pushed them to your GitHub account. 
 
-> Answer: https://github.com/sl683/EDA-Spring2023
+> Answer: https://github.com/sl683/EDA-Spring2023.git 
 
 ## 4) Knitting
 When you have completed this document, click the `knit` button.This should produce a PDF copy of your markdown document. Submit this PDF to Sakai. 
