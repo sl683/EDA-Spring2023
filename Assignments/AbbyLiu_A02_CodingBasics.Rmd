@@ -35,13 +35,21 @@ This exercise accompanies the lessons in Environmental Data Analytics on coding 
 sequence <- seq(1, 100, 4) #generate the required sequence with seq() function
 sequence #return the sequence generated
 
+sequence <- seq(1, 10, 4) #generate the required sequence with seq() function
+sequence #return the sequence generated
+
 #2. 
+mean(sequence) #use mean() function to calculate the mean of the sequence
+median(sequence) #use median() function to calculate the median of the sequence
+
 mean(sequence) #use mean() function to calculate the mean of the sequence
 median(sequence) #use median() function to calculate the median of the sequence
 
 #3. 
 #use conditional statement to determine whether the mean is greater than the median
 mean(sequence) > median(sequence) 
+
+mean(sequence) > median(sequence) #use conditional statement to determine whether the mean is greater than the median
 
 ```
 
@@ -60,8 +68,18 @@ name <- c("Mario", "Toad", "Peach", "Bowser") #vector type: character
 score <- c(80, 47, 96, 68) #vector type: numeric
 pass <- c(TRUE, FALSE, TRUE, TRUE) #vector type: logical
 
+<<<<<<< HEAD:Assignments/AbbyLiu_A02_CodingBasics.Rmd
 test_result_df <- data.frame("Name"=name, "Score"=score, "Pass"=pass)
 test_result_df
+=======
+name <- c("Mario", "Toad", "Peach", "Bowser") #vector type: character
+score <- c(80, 47, 96, 68) #vector type: numeric
+pass <- c(TRUE, FALSE, TRUE, TRUE) #vector type: logical
+
+test_result_df <- data.frame("Name"=name, "Score"=score, "Pass"=pass)
+test_result_df
+
+>>>>>>> 8d53e393e1144e88a0dba53351b8b9fd2867e0e0:Assignments/A02_CodingBasics.Rmd
 ```
 
 9.  QUESTION: How is this data frame different from a matrix?
@@ -83,12 +101,17 @@ pass_or_not1 <- function(score) {
     FALSE
   }
 }
+<<<<<<< HEAD:Assignments/AbbyLiu_A02_CodingBasics.Rmd
 #pass_or_not1(score) 
 #This doesn't work with an error message of the condition has length > 1. 
 #The 'if'-'else' statements need to process each vector one by one. 
 pass1 <- sapply(score, FUN=pass_or_not1) 
 #This error can be solved if we use sapply() 
 #to apply this function on every single component of the series of vectors.
+=======
+#pass_or_not1(score) #This doesn't work with an error message of the condition has length > 1. The 'if'-'else' statements need to process each vector one by one. 
+pass1 <- sapply(score, FUN=pass_or_not1) #This error can be solved if we use sapply() to apply this function on every single component of the series of vectors.
+>>>>>>> 8d53e393e1144e88a0dba53351b8b9fd2867e0e0:Assignments/A02_CodingBasics.Rmd
 pass1
 
 
