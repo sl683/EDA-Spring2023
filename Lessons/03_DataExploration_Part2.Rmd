@@ -19,6 +19,9 @@ editor_options:
 
 Why is data exploration our first step in analyzing a dataset? What information do we gain? How does data exploration aid in our decision-making for data analysis steps further down the pipeline?
 
+> Answer: Data exploration allows for deeper understanding of a dataset and make it easier to use and analyze the data later. Through data exploration, we can have a basic understanding of what variables are included in the dataset and their characteristics. Data exploration can help identify any outliers in the dataset and also the skewness of the dataset so that we can clean, transform and impute the data for better analysis. 
+
+
 ## Import data and view summaries
 
 ```{r, message = FALSE}
@@ -61,8 +64,8 @@ Visualize count data for categorical variables.
 ggplot(USGS.flow.data, aes(x = discharge.mean.approval)) +
   geom_bar()
 
-
-
+ggplot(na.omit(USGS.flow.data), aes(x = discharge.mean.approval)) +
+  geom_bar()
 ```
 
 ### Histogram (function: geom_histogram)
