@@ -48,6 +48,24 @@ Create three plots, each with appropriately formatted axes and legends. Choose a
 
 ```{r}
 #Exercise 1:
+ozone_plot <- ggplot(EPAair, aes(x = Ozone, fill=as.factor(Year)))+
+  geom_density(alpha=0.5)+
+  scale_fill_manual(values=c("red","blue"))+
+  labs(fill="")
+print(ozone_plot) 
+
+#2:
+ozone_boxplot <- ggplot(EPAair, aes(x = as.factor(Year), y = Ozone, fill=as.factor(Year)))+
+  geom_boxplot()+
+  stat_summary(geom='text',fun=max,vjust=-1,size=4,label=c('a','b'))
+print(ozone_boxplot)
+
+#3
+ozone_violin <- ggplot(EPAair, aes(x = as.factor(Year), y = Ozone, fill=as.factor(Year)))+
+  geom_violin(draw_quantiles=0.5)+
+  stat_summary(geom='text',fun=max,vjust=-1,size=4,label=c('a','b'))+
+  ylim(0,150)
+print(ozone_violin)
 
 
 ```
@@ -61,12 +79,14 @@ For the NTL-LTER dataset, can we predict PM2.5 from Ozone?
 ```{r}
 
 #Exercise 2: Run a linear regression PM2.5 by Ozone. Find the p-value and R-squared value. 
-
-
+pm_o3 <- lm(EPAair$PM2.5 ~ EPAair$Ozone)
+summary(pm_o3)
 
 #Exercise 3: Build a scatterplot. Add a line and standard error for the linear regression. Add the regression equation to the plot
-
-
+pm_o3_plot <- ggplot(EPAair, aes(x=Ozone, y=PM2.5))+
+  geom_point()+
+  geom_smooth(method='lm', color='blue', se=FALSE)
+print(pm_o3_plot)
 
 ```
 
@@ -78,17 +98,26 @@ What other variables can we add to improve model?
 ```{r}
 
 #Exercise 4: Build correlation plots and identify more possible explanatory variables to add to the regression.
-
-
+EPAairSub <-
+  EPAair %>%
+  select(mean_Lat:Ozone) %>%
+  na.omit()
+EPAairCorr <- cor(EPAairSub)
+corrplot(EPAairCorr, method='ellipse')
+corrplot.mixed(EPAairCorr, upper='ellipse')
 
 
 #Exercise 5: Choose a model by AIC in a Stepwise Algorithm. Do the results from AIC match the variables you selected on Exercise 4?
 
+EPA_AIC <- lm(data = EPAairSub, PM2.5 ~ mean_Lat + mean_Lng + Month + Year + Ozone)
 
+#Choose a model by AIC in a Stepwise Algorithm
+step(EPA_AIC)
 
 
 #Exercise 6: Run another regression using the variables selected on Exercise 6. Compare r-squared value with the one from Exercise 2. 
-
+model <- lm(data =  EPAairSub, PM2.5 ~ mean_Lat + mean_Lng + Month + Ozone)
+summary(model)
 ```
 
 
