@@ -4,6 +4,7 @@ author: "Abby Liu"
 date: "Spring 2023"
 output: pdf_document
 toc: true
+toc_depth: 1
 ---
 
 ## Objectives:
@@ -26,7 +27,7 @@ toc: true
 
 Create a table below summarizing the metadata of the EPA Air Quality data. The first column will be the metadata attribute item name: "Source", "Date", and "Filename". And the second column will include the metadata values: "EPA Air Quality SYstem (AQS)", "2018-2019", and "EPAair_O3_PM25_NC1819_Processed.csv". The first column should be aligned to the right and the second to the left.
 
-|      |      |
+| Item Name | Value |
 | ---: | :--- |
 | Source | EPA Air Quality System (AQS) |
 | Date | 2018-2019 | 
@@ -92,27 +93,27 @@ kable(summary_PM25, caption = "Mean Ozone", col.names = c("County", "$\\mu g/m^3
 
 Create two separate code chunks that create boxplots of the distribution of Ozone levels by month using, one for only records collected in 2018 and one for records in 2019. Customize the chunk options such that the final figures are displayed but not the code used to generate the figures. In addition, the plots aligned on the left side of the page and set the figure heights so both plots fit on the same page with minimal space remaining. Lastly, add a `fig.cap` chunk option to add a caption (title) to your plot that will display underneath the figure.
 
-```{r plot.O3.2018, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Ozone Concentration (2018)", fig.align='left', fig.height= 2.8 }
+```{r plot.O3.2018, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Monthly Ozone (2018)", fig.align='left', fig.height= 2.8 }
 epa_data %>%
   filter(Year == 2018) %>%
   ggplot(aes(x = factor(Month, labels = month.abb), y = Ozone)) +
   geom_boxplot() +
   labs(
-    title ='Ozone Concentration',
+    title ='Recorded Ozone by month (2018)',
     x = 'Month',
-    y = expression(paste('Ozone Concentration (',mu,'g)'))
+    y = expression(paste('Concentration (',mu,'g)'))
   )
 ```
 
-```{r plot.O3.2019, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Ozone Concentration (2019)", fig.align='left', fig.height= 2.8 }
+```{r plot.O3.2019, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Monthly Ozone (2019)", fig.align='left', fig.height= 2.8 }
 epa_data %>%
   filter(Year == 2019) %>%
   ggplot(aes(x = factor(Month, labels = month.abb), y = Ozone)) +
   geom_boxplot() +
   labs(
-    title ='Ozone Concentration',
+    title ='Recorded Ozone by month (2019)',
     x = 'Month',
-    y = expression(paste('Ozone Concentration (',mu,'g)'))
+    y = expression(paste('Concentration (',mu,'g)'))
   )
 ```
 
@@ -121,7 +122,8 @@ epa_data %>%
 ## Task 4: Knit and submit.
 Add a table of contents to your document and knit to a PDF. Submit your PDF to Sakai, but also be sure to commit and push your Rmd file used to create this knit document to GitHub. In the section below, add a link to your GitHub repository. 
 
-### Git Repository
+#### Git Repository
+<br><br><br><br><br>  
 https://github.com/sl683/EDA-Spring2023/
 
 
